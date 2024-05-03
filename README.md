@@ -1,2 +1,2 @@
 # SQL-Queries
-Some exercises using the SQL language
+This repository is dedicated to managing and analyzing data from SQL databases. 
