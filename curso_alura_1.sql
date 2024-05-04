@@ -151,11 +151,14 @@ WHERE tta.ID_Turmas = iat.ID_Turma
 
 SELECT * FROM info_alunos_id
 
-CREATE VIEW info_alunos AS
-SELECT ta.ID_Aluno, ta.Nome_Aluno, ta.Data_Nascimento, ta.Genero, ta.Endereco, ta.Telefone_Contato, ta.Email, iai.Nome_Disciplina, iai.Nome_Turma, iai.Ano_Letivo 
-FROM info_alunos_id iai
-JOIN tabela_alunos ta
+CREATE TABLE info_alunos AS
+SELECT * 
+FROM tabela_alunos ta
+JOIN info_alunos_id iai
 WHERE ta.ID_Aluno = iai.ID_Alunos
+
+ALTER TABLE info_alunos 
+DROP COLUMN ID_Alunos;
 
 SELECT * FROM info_alunos ORDER BY Nome_Aluno
 
