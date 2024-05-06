@@ -29,11 +29,8 @@ FROM Notas;
   
 -- Consulta 5: Porcentagem dos alunos que estão aprovados por disciplina
 SELECT d.Nome_Disciplina, 
-  ROUND(100.0 * COUNT(n.Nota) / (SELECT COUNT(ID_Aluno) FROM Alunos), 2) || '%' AS Percentual_Aprovado
+  ROUND(100.0 * COUNT(n.Nota) / (SELECT COUNT(ID_Aluno) FROM Turma_Alunos), 2) || '%' AS Percentual_Aprovado
 FROM Notas n
 JOIN Disciplinas d ON n.ID_Disciplina = d.ID_Disciplina
 WHERE n.Nota > 5
-GROUP BY d.Nome_Disciplina;
-
-
-  
+GROUP BY d.Nome_Disciplina; 
